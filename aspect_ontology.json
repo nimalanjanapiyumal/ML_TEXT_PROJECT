@@ -1,0 +1,38 @@
+## 3. Define Aspect Ontology Inline
+
+# Manually define your internship aspect ontology:
+ontology = {
+    "mentorship": [
+        "mentor", "supervisor", "coach", "guidance", "feedback"
+    ],
+    "technical_support": [
+        "code_review", "debugging", "technical_support", "ci_cd", "repository", "tools"
+    ],
+    "learning_opportunities": [
+        "workshop", "training", "tutorial", "learning", "skill_development"
+    ],
+    "workload": [
+        "task", "deadline", "hours", "workload", "assignment"
+    ],
+    "team_collaboration": [
+        "team", "collaboration", "meeting", "communication", "pair_programming"
+    ],
+    "environment": [
+        "workspace", "remote_access", "office", "equipment", "infrastructure"
+    ],
+    "professional_networking": [
+        "networking", "event", "culture", "peers", "connections"
+    ],
+    "career_guidance": [
+        "career", "path", "review", "promotion", "performance"
+    ]
+}
+
+# Build a reverse map for fast lookup
+term_to_cat = {
+    term: cat
+    for cat, terms in ontology.items()
+    for term in terms
+}
+
+print("Loaded ontology with", len(term_to_cat), "terms across", len(ontology), "categories.")
